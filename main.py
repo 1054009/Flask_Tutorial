@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 # initialize database
 # connection string is in the format mysql://user:password@server/database
-conn_str = "mysql://root:iit123@localhost/boatdb"
+conn_str = "mysql://root:1234@localhost/boatdb"
 engine = create_engine(conn_str, echo=True)
 conn = engine.connect()
 
