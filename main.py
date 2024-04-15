@@ -35,7 +35,7 @@ def get_boats(page = 1):
 	boat_count = run_query("select count(distinct `id`) from `boats`").first()[0]
 	boats = run_query(f"select * from `boats` limit 10 offset {(page - 1) * 10}").all()
 
-	return render_template("boats.html", boats = boats, page = page, min_page = 1, max_page = math.ceil(boat_count % 10))
+	return render_template("boats.html", boats = boats, page = page, min_page = 1, max_page = math.ceil(boat_count / 10))
 
 @app.route("/create", methods = ["GET"])
 def create_get_request():
