@@ -23,15 +23,15 @@ def index():
 		type_count = type_count
 	)
 
-@app.route("/boats/view/<boat>")
-def view_boat(boat = 1):
+@app.route("/boats/view/<boat_id>")
+def view_boat(boat_id = 1):
 	try:
-		page = int(page)
-		assert(page > 0)
+		boat_id = int(boat_id)
+		assert(boat_id > 0)
 	except:
-		page = 1
+		boat_id = 1
 
-	boat = run_query(f"select * from `boats`where `id` = {boat}").first()[0]
+	boat = run_query(f"select * from `boats`where `id` = {boat_id}").first()
 
 	return render_template("view.html", boat = boat)
 
