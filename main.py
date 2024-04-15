@@ -11,8 +11,15 @@ def run_query(query, parameters = None):
 @app.route("/")
 def index():
 	boat_count = run_query("select count(distinct `id`) from `boats`").first()[0]
+	owner_count = run_query("select count(distinct `owner_id`) from `boats`").first()[0]
+	type_count = run_query("select count(distinct `type`) from `boats`").first()[0]
 
-	return render_template("home.html", boat_count = boat_count)
+	return render_template(
+		"home.html",
+		boat_count = boat_count,
+		owner_count = owner_count,
+		type_count = type_count
+	)
 
 @app.route("/boats/")
 @app.route("/boats/<page>")

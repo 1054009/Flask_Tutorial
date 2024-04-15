@@ -1,14 +1,30 @@
 {% extends "base.html" %}
 
 {% block body %}
-	<center>
-		<p>There are
-		{% if boat_count %}
-			{{ boat_count }}
-		{% else %}
-			0
-		{% endif %}
-		boats!
-		</p>
-	</center>
+	<p>There are
+	{% if boat_count %}
+		{{ boat_count }}
+	{% else %}
+		0
+	{% endif %}
+	boats!
+	</p>
+
+	<p>There are
+	{% if type_count %}
+		{{ type_count }}
+	{% else %}
+		0
+	{% endif %}
+	types of boat
+	</p>
+
+	<p>There are
+	{% if owner_count %}
+		{{ owner_count }}
+	{% else %}
+		0
+	{% endif %}
+	different owners
+	</p>
 {% endblock %}
