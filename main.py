@@ -25,7 +25,11 @@ def index():
 @app.route("/boats/")
 @app.route("/boats/<page>")
 def get_boats(page = 1):
-	page = int(page)
+	try:
+		page = int(page)
+		assert(page > 0)
+	except:
+		page = 1
 
 	query = text(f"select * from `boats` limit 10 offset {(page - 1) * 10}")
 	boats = conn.execute(query).all()
