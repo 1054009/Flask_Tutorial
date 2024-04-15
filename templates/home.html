@@ -1,7 +1,14 @@
 {% extends "base.html" %}
 
 {% block body %}
-	{% if boat_count %}
-		<h2>{{ boat_count }}</h2>
-	{% endif %}
+	<center>
+		<p>There are
+		{% if boat_count %}
+			{{ boat_count }}
+		{% else %}
+			0
+		{% endif %}
+		boats!
+		</p>
+	</center>
 {% endblock %}
