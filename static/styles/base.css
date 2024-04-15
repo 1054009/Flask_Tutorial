@@ -116,6 +116,8 @@ html, body
 {
 	padding-left: var(--left-padding);
 	padding-right: var(--right-padding);
+	padding-top: 1em;
+	padding-bottom: 1em;
 
 	width: 100%;
 	height: calc(100% - (var(--navbar-height) + var(--footer-height)));
