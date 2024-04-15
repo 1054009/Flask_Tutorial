@@ -36,11 +36,6 @@ html, body
 	height: 100%;
 }
 
-a:visited
-{
-	color: blue;
-}
-
 .float_right
 {
 	float: right;
@@ -110,6 +105,11 @@ a:visited
 
 	display: flex;
 	align-items: center;
+}
+
+#navbar a:visited
+{
+	color: blue;
 }
 
 #logo
