@@ -5,30 +5,43 @@
 {% endblock %}
 
 {% block body %}
-	<p>There are
-	{% if boat_count %}
-		{{ boat_count }}
-	{% else %}
-		0
-	{% endif %}
-	boats!
-	</p>
+	<div id="body_container">
+		<div>
+			<p>
+				<span class="stat">
+					{% if boat_count %}
+						{{ boat_count }}
+					{% else %}
+						0
+					{% endif %}
+				</span>
 
-	<p>There are
-	{% if type_count %}
-		{{ type_count }}
-	{% else %}
-		0
-	{% endif %}
-	types of boat
-	</p>
+				boats
+			</p>
 
-	<p>There are
-	{% if owner_count %}
-		{{ owner_count }}
-	{% else %}
-		0
-	{% endif %}
-	different owners
-	</p>
+			<p>
+				<span class="stat">
+					{% if type_count %}
+						{{ type_count }}
+					{% else %}
+						0
+					{% endif %}
+				</span>
+
+				types of boat
+			</p>
+
+			<p>
+				<span class="stat">
+					{% if owner_count %}
+						{{ owner_count }}
+					{% else %}
+						0
+					{% endif %}
+				</span>
+
+				proud boat owners
+			</p>
+		</div>
+	</div>
 {% endblock %}
