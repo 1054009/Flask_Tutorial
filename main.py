@@ -5,12 +5,14 @@ app = Flask(__name__)
 engine = create_engine("mysql://root:1234@localhost/boatdb", echo=True)
 conn = engine.connect()
 
+def run_query(query, parameters = None):
+	return conn.execute(text(query), parameters)
+
 @app.route("/")
 def index():
-	query = text(f"select count(distinct `id`) from `boats`")
-	count = conn.execute(query).first()[0]
+	boat_count = run_query("select count(distinct `id`) from `boats`").first()[0]
 
-	return render_template("home.html", boat_count = count)
+	return render_template("home.html", boat_count = boat_count)
 
 @app.route("/boats/")
 @app.route("/boats/<page>")
