@@ -20,6 +20,8 @@ html, body
 
 #navbar
 {
+	padding: 1em;
+
 	position: sticky;
 	top: 0;
 
@@ -29,4 +31,10 @@ html, body
 	border-bottom: 1px solid black;
 
 	background-color: lightgray;
+}
+
+#logo
+{
+	width: auto;
+	height: 3em;
 }
