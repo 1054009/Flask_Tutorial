@@ -31,8 +31,7 @@ def get_boats(page = 1):
 	except:
 		page = 1
 
-	query = text(f"select * from `boats` limit 10 offset {(page - 1) * 10}")
-	boats = conn.execute(query).all()
+	boats = run_query(f"select * from `boats` limit 10 offset {(page - 1) * 10}").all()
 
 	return render_template("boats.html", boats = boats, page = page)
 
