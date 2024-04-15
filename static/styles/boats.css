@@ -1,8 +1,3 @@
-a
-{
-	all: unset;
-}
-
 #page_selector
 {
 	display: flex;
@@ -21,6 +16,11 @@ a
 	grid-template-columns: repeat(3, 1fr);
 
 	gap: 1em;
+}
+
+#boat_holder a
+{
+	all: unset;
 }
 
 #boat_display
