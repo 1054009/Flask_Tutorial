@@ -20,21 +20,21 @@
 	justify-content: center;
 	align-items: center;
 
-	background-color: lightgray;
-
 	border-radius: 1em;
 	border: 1px solid black;
 
 	cursor: pointer;
 
-	background: linear-gradient(0deg, rgba(211, 211, 211, 0.95), rgba(211, 211, 211, 0.95)), url("../img/boat.webp");
+	background: linear-gradient(0deg, var(--transparent-gray), var(--transparent-gray)), url("../img/boat.webp");
 	background-position: center;
 	background-repeat: no-repeat;
 }
 
 #boat_display:hover
 {
-	background-color: rgb(175, 175, 175);
+	background: linear-gradient(0deg, var(--transparent-dark-gray), var(--transparent-dark-gray)), url("../img/boat.webp");
+	background-position: center;
+	background-repeat: no-repeat;
 }
 
 #boat_display *
