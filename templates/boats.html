@@ -1,5 +1,15 @@
 {% extends "base.html" %}
 
-{% block body %}
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'styles/boats.css') }}">
+{% endblock %}
 
+{% block body %}
+<div id="boat_holder">
+	{% for boat in boats %}
+	<div id="boat_display">
+		<p>Click to view Boat #{{ boat["id"] }}</p>
+	</div>
+	{% endfor %}
+</div>
 {% endblock %}
