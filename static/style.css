@@ -80,3 +80,30 @@ html, body
 	width: auto;
 	height: 3em;
 }
+
+/*
+*
+*	Footer
+*
+*/
+
+#footer
+{
+	padding-top: 1em;
+	padding-bottom: 1em;
+	padding-left: 5em;
+	padding-right: 5em;
+
+	position: sticky;
+	top: calc(100% - 5em);
+
+	width: 100%;
+	height: 5em;
+
+	border-top: 1px solid black;
+
+	background-color: lightgray;
+
+	display: flex;
+	align-items: center;
+}
