@@ -1,0 +1,12 @@
+@keyframes boat_scroll
+{
+	0%
+	{
+		background-position: 5% 5%;
+	}
+
+	100%
+	{
+		background-position: 38% 48%;
+	}
+}

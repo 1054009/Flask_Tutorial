@@ -3,6 +3,7 @@
 	<head>
 		<title>Boat Master 4000</title>
 
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'styles/boat_bg.css') }}">
 		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'styles/base.css') }}">
 
 		{% block head %}
@@ -10,7 +11,7 @@
 	</head>
 
 	<body>
-		<div id="navbar">
+		<div id="navbar" class="boat_scroll">
 			<img id="logo" src="{{ url_for('static', filename = 'img/boat.webp') }}">
 
 			<div class="float_right">
@@ -27,7 +28,7 @@
 			{% endblock %}
 		</div>
 
-		<div id="footer">
+		<div id="footer" class="boat_scroll">
 			&copy; Boats!
 
 			<div class="float_right">

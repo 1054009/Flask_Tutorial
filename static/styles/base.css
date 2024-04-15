@@ -63,6 +63,18 @@ html, body
 	display: inline;
 }
 
+.boat_scroll
+{
+	animation-name: boat_scroll;
+	animation-duration: 10s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+
+	background: linear-gradient(0deg, rgba(211, 211, 211, 0.95), rgba(211, 211, 211, 0.95)), url("../img/boat.webp");
+	background-size: 1.5em 1.5em;
+	background-repeat: repeat;
+}
+
 /*
 *
 *	NavBar
@@ -83,8 +95,6 @@ html, body
 	height: var(--navbar-height);
 
 	border-bottom: 1px solid black;
-
-	background-color: lightgray;
 
 	display: flex;
 	align-items: center;
@@ -131,8 +141,6 @@ html, body
 	height: var(--footer-height);
 
 	border-top: 1px solid black;
-
-	background-color: lightgray;
 
 	display: flex;
 	align-items: center;
