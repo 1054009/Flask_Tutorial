@@ -1,47 +1,47 @@
 {% extends "base.html" %}
 
 {% block head %}
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'styles/home.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'styles/home.css') }}">
 {% endblock %}
 
 {% block body %}
-	<div id="body_container">
-		<div>
-			<p>
-				<span class="stat">
-					{% if boat_count %}
-						{{ boat_count }}
-					{% else %}
-						0
-					{% endif %}
-				</span>
+<div id="body_container">
+	<div>
+		<p>
+			<span class="stat">
+				{% if boat_count %}
+					{{ boat_count }}
+				{% else %}
+					0
+				{% endif %}
+			</span>
 
-				boats
-			</p>
+			boats
+		</p>
 
-			<p>
-				<span class="stat">
-					{% if type_count %}
-						{{ type_count }}
-					{% else %}
-						0
-					{% endif %}
-				</span>
+		<p>
+			<span class="stat">
+				{% if type_count %}
+					{{ type_count }}
+				{% else %}
+					0
+				{% endif %}
+			</span>
 
-				types of boat
-			</p>
+			types of boat
+		</p>
 
-			<p>
-				<span class="stat">
-					{% if owner_count %}
-						{{ owner_count }}
-					{% else %}
-						0
-					{% endif %}
-				</span>
+		<p>
+			<span class="stat">
+				{% if owner_count %}
+					{{ owner_count }}
+				{% else %}
+					0
+				{% endif %}
+			</span>
 
-				proud boat owners
-			</p>
-		</div>
+			proud boat owners
+		</p>
 	</div>
+</div>
 {% endblock %}
