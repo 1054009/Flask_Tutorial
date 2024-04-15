@@ -23,6 +23,18 @@ def index():
 		type_count = type_count
 	)
 
+@app.route("/boats/view/<boat>")
+def view_boat(boat = 1):
+	try:
+		page = int(page)
+		assert(page > 0)
+	except:
+		page = 1
+
+	boat = run_query(f"select * from `boats`where `id` = {boat}").first()[0]
+
+	return render_template("view.html", boat = boat)
+
 @app.route("/boats/")
 @app.route("/boats/<page>")
 def get_boats(page = 1):

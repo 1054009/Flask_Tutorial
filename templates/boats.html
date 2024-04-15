@@ -25,9 +25,11 @@
 
 <div id="boat_holder">
 	{% for boat in boats %}
-	<div id="boat_display">
-		<h2>Click to view Boat #{{ boat["id"] }}</h2>
-	</div>
+	<a href="{{ "/boats/view/" + boat["id"] | string }}">
+		<div id="boat_display">
+			<h2>Click to view Boat #{{ boat["id"] }}</h2>
+		</div>
+	</a>
 	{% endfor %}
 </div>
 {% endblock %}
