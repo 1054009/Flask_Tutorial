@@ -10,11 +10,6 @@ conn = engine.connect()
 def index():
     return render_template("index.html")
 
-@app.route("/user/<name>")
-def user(name):
-    return render_template("user.html", name=name)
-
-
 @app.route("/boats/")
 @app.route("/boats/<page>")
 def get_boats(page=1):
