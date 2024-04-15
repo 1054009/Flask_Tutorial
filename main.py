@@ -7,14 +7,17 @@ conn = engine.connect()
 
 @app.route("/")
 def index():
-	return render_template("home.html", boat_count = 5)
+	query = text(f"select count(*) from `boats`")
+	count = conn.execute(query).first()[0]
+
+	return render_template("home.html", boat_count = count)
 
 @app.route("/boats/")
 @app.route("/boats/<page>")
 def get_boats(page = 1):
 	page = int(page)
 
-	query = f"select * from `boats` limit 10 offset {(page - 1) * 10}"
+	query = text(f"select * from `boats` limit 10 offset {(page - 1) * 10}")
 	boats = conn.execute(query).all()
 
 	return render_template("boats.html", boats = boats, page = page)
@@ -28,7 +31,7 @@ def create_boat():
 	status = "Boat??"
 
 	try:
-		query = "insert into `boats` values (:id, :name, :type, :owner_id, :rental_price)"
+		query = text("insert into `boats` values (:id, :name, :type, :owner_id, :rental_price)")
 		conn.execute(query, request.form)
 
 		status = "Your boat is now"
