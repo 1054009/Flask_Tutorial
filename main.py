@@ -7,7 +7,7 @@ conn = engine.connect()
 
 @app.route("/")
 def index():
-	return render_template("home.html")
+	return render_template("home.html", boat_count = 5)
 
 @app.route("/boats/")
 @app.route("/boats/<page>")
