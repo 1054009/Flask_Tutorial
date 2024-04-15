@@ -83,6 +83,18 @@ html, body
 
 /*
 *
+*	Body
+*
+*/
+
+#body_block
+{
+	padding-left: 5em;
+	padding-right: 5em;
+}
+
+/*
+*
 *	Footer
 *
 */
