@@ -5,6 +5,24 @@
 {% endblock %}
 
 {% block body %}
+<div id="page_selector">
+	{% if page > min_page %}
+		<a href="{{ "/boats/" + (page - 1) | string }}"><button>Previous Page</button></a>
+	{% endif %}
+
+	{% for i in range(page - 1, page + 2) %}
+		{% if i >= min_page and i <= max_page %}
+			<a href="{{ "/boats/" + i | string }}"><button>{{ i }}</button></a>
+		{% endif %}
+	{% endfor %}
+
+	{% if page < max_page %}
+		<a href="{{ "/boats/" + (page + 1) | string }}"><button>Next Page</button></a>
+	{% endif %}
+</div>
+
+<br />
+
 <div id="boat_holder">
 	{% for boat in boats %}
 	<div id="boat_display">
