@@ -29,6 +29,11 @@ html, body
 	height: 100%;
 }
 
+a:visited
+{
+	color: blue;
+}
+
 .float_right
 {
 	float: right;
