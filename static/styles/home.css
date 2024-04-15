@@ -10,6 +10,11 @@
 	font-size: 2rem;
 }
 
+#body_block
+{
+	height: calc(100vh - (var(--navbar-height) + var(--footer-height)));
+}
+
 #body_block p
 {
 	font-variant: small-caps;

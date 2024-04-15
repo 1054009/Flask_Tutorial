@@ -117,6 +117,15 @@ a:visited
 *
 */
 
+#body_display
+{
+	min-height: calc(100vh - var(--navbar-height));
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
 #body_block
 {
 	padding-left: var(--left-padding);
@@ -125,7 +134,6 @@ a:visited
 	padding-bottom: 1em;
 
 	width: 100%;
-	height: calc(100% - (var(--navbar-height) + var(--footer-height)));
 }
 
 /*
@@ -141,8 +149,8 @@ a:visited
 	padding-left: var(--left-padding);
 	padding-right: var(--right-padding);
 
-	position: sticky;
-	top: calc(100% - 5em);
+	position: absolute;
+	top: calc(100vh - var(--footer-height));
 
 	width: 100%;
 	height: var(--footer-height);
