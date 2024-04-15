@@ -13,13 +13,12 @@ def index():
 @app.route("/boats/<page>")
 def get_boats(page = 1):
 	page = int(page)
-	per_page = 10
 
 	query = f"SELECT * FROM boats LIMIT {per_page} OFFSET {(page - 1) * per_page}"
 
 	boats = conn.execute(query).all()
 
-	return render_template("boats.html", boats=boats, page=page, per_page=per_page)
+	return render_template("boats.html", boats = boats, page = page)
 
 @app.route("/create", methods=["GET"])
 def create_get_request():
