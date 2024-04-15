@@ -7,7 +7,7 @@ conn = engine.connect()
 
 @app.route("/")
 def index():
-	query = text(f"select count(*) from `boats`")
+	query = text(f"select count(distinct `id`) from `boats`")
 	count = conn.execute(query).first()[0]
 
 	return render_template("home.html", boat_count = count)
