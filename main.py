@@ -2,8 +2,7 @@ from flask import Flask, render_template, request
 from sqlalchemy import Column, Integer, String, Numeric, create_engine, text
 
 app = Flask(__name__)
-conn_str = "mysql://root:1234@localhost/boatdb"
-engine = create_engine(conn_str, echo=True)
+engine = create_engine("mysql://root:1234@localhost/boatdb", echo=True)
 conn = engine.connect()
 
 @app.route("/")
@@ -12,11 +11,14 @@ def index():
 
 @app.route("/boats/")
 @app.route("/boats/<page>")
-def get_boats(page=1):
+def get_boats(page = 1):
     page = int(page)
     per_page = 10
-    boats = conn.execute(text(f"SELECT * FROM boats LIMIT {per_page} OFFSET {(page - 1) * per_page}")).all()
-    print(boats)
+
+	query = f"SELECT * FROM boats LIMIT {per_page} OFFSET {(page - 1) * per_page}"
+
+    boats = conn.execute(query).all()
+
     return render_template("boats.html", boats=boats, page=page, per_page=per_page)
 
 @app.route("/create", methods=["GET"])
