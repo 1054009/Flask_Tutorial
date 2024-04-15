@@ -9,6 +9,14 @@
 	<body>
 		<div id="navbar">
 			<img id="logo" src="{{ url_for('static', filename = 'img/boat.webp') }}">
+
+			<div class="float_right">
+				<ul class="sidelist">
+					<li>Home</li>
+					<li>View Boats</li>
+					<li>Manage Boats</li>
+				</ul>
+			</div>
 		</div>
 
 		{% block body %}

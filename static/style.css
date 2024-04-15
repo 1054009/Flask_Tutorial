@@ -14,6 +14,40 @@ html, body
 	height: 100%;
 }
 
+.float_right
+{
+	float: right;
+
+	margin-left: auto;
+}
+
+.float_right::after
+{
+	content: "";
+
+	clear: both;
+
+	display: table;
+}
+
+.sidelist
+{
+	list-style-type: none;
+
+	display: flex;
+	align-items: center;
+
+	gap: 1em;
+
+	margin: 0;
+	padding: 0;
+}
+
+.sidelist li
+{
+	display: inline;
+}
+
 /*
 *
 *	NavBar
@@ -22,7 +56,10 @@ html, body
 
 #navbar
 {
-	padding: 1em;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	padding-left: 5em;
+	padding-right: 5em;
 
 	position: sticky;
 	top: 0;
@@ -33,6 +70,9 @@ html, body
 	border-bottom: 1px solid black;
 
 	background-color: lightgray;
+
+	display: flex;
+	align-items: center;
 }
 
 #logo
