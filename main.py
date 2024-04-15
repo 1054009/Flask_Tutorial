@@ -9,6 +9,7 @@ def run_query(query, parameters = None):
 	return conn.execute(text(query), parameters)
 
 @app.route("/")
+@app.route("/home")
 def index():
 	boat_count = run_query("select count(distinct `id`) from `boats`").first()[0]
 	owner_count = run_query("select count(distinct `owner_id`) from `boats`").first()[0]
