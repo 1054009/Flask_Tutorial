@@ -25,14 +25,14 @@
 
 	cursor: pointer;
 
-	background: linear-gradient(0deg, var(--transparent-gray), var(--transparent-gray)), url("../img/boat.webp");
+	background: linear-gradient(0deg, var(--transparent-gray), var(--transparent-gray)), var(--boat);
 	background-position: center;
 	background-repeat: no-repeat;
 }
 
 #boat_display:hover
 {
-	background: linear-gradient(0deg, var(--transparent-dark-gray), var(--transparent-dark-gray)), url("../img/boat.webp");
+	background: linear-gradient(0deg, var(--transparent-dark-gray), var(--transparent-dark-gray)), var(--boat);
 	background-position: center;
 	background-repeat: no-repeat;
 }
