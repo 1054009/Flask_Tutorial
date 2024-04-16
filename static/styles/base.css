@@ -41,6 +41,11 @@ button, select
 	min-width: 5em;
 }
 
+p
+{
+	margin: 0;
+}
+
 .float_right
 {
 	float: right;
