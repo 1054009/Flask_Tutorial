@@ -14,8 +14,12 @@
 
 <div id="page_controls">
 	<div>
+		<a onclick="set_page(1, {{ per_page }})"><button>First Page</button></a>
+
 		{% if page > min_page %}
 			<a onclick="set_page({{ page - 1 }}, {{ per_page }})"><button>Previous Page</button></a>
+		{% else %}
+			<button disabled>Previous Page</button>
 		{% endif %}
 
 		{% for i in range(page - 1, page + 2) %}
@@ -26,7 +30,11 @@
 
 		{% if page < max_page %}
 			<a onclick="set_page({{ page + 1 }}, {{ per_page }})"><button>Next Page</button></a>
+		{% else %}
+			<button disabled>Next Page</button>
 		{% endif %}
+
+		<a onclick="set_page({{ max_page }}, {{ per_page }})"><button>Last Page</button></a>
 	</div>
 
 	<div>
