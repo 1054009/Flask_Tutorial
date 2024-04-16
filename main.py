@@ -52,7 +52,7 @@ def view_boat(boat_id = 1):
 @app.route("/boats/")
 @app.route("/boats/<page>")
 def view_boats(page = 1):
-	boats, page, min_page, max_page = get_boats(page)
+	boats, page, min_page, max_page = get_boats(page, request.args.get("per_page"))
 
 	return render_template(
 		"boats.html",
