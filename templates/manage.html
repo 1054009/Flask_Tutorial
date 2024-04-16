@@ -1,9 +1,21 @@
 {% extends "base.html" %}
 
 {% block head %}
-
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'styles/manage.css') }}">
 {% endblock %}
 
 {% block body %}
+<div id="manage_container">
+	<div class="boat_button">
+		<h2>Add New Boat</h2>
+	</div>
 
+	<div class="boat_button">
+		<h2>Remove Boat</h2>
+	</div>
+
+	<div class="boat_button">
+		<h2>Edit Boat</h2>
+	</div>
+</div>
 {% endblock %}
