@@ -9,6 +9,18 @@ conn = engine.connect()
 def run_query(query, parameters = None):
 	return conn.execute(text(query), parameters)
 
+def get_boats(page = 1):
+	try:
+		page = int(page)
+		assert(page > 0)
+	except:
+		page = 1
+
+	boat_count = run_query("select count(distinct `id`) from `boats`").first()[0]
+	boats = run_query(f"select * from `boats` limit 10 offset {(page - 1) * 10}").all()
+
+	return boats, page, 1, math.ceil(boat_count / 10)
+
 @app.route("/")
 @app.route("/home")
 def index():
@@ -37,22 +49,15 @@ def view_boat(boat_id = 1):
 
 @app.route("/boats/")
 @app.route("/boats/<page>")
-def get_boats(page = 1):
-	try:
-		page = int(page)
-		assert(page > 0)
-	except:
-		page = 1
-
-	boat_count = run_query("select count(distinct `id`) from `boats`").first()[0]
-	boats = run_query(f"select * from `boats` limit 10 offset {(page - 1) * 10}").all()
+def view_boats(page = 1):
+	boats, page, min_page, max_page = get_boats(page)
 
 	return render_template(
 		"boats.html",
 		boats = boats,
 		page = page,
-		min_page = 1,
-		max_page = math.ceil(boat_count / 10)
+		min_page = min_page,
+		max_page = max_page
 	)
 
 if __name__ == "__main__":
