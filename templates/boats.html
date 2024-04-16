@@ -24,7 +24,13 @@
 
 		{% for i in range(page - 1, page + 2) %}
 			{% if i >= min_page and i <= max_page %}
-				<a onclick="set_page({{ i }}, {{ per_page }})"><button>{{ i }}</button></a>
+				<a onclick="set_page({{ i }}, {{ per_page }})">
+					{% if i == page %}
+						<button id="current_page">{{ i }}</button>
+					{% else %}
+						<button>{{ i }}</button>
+					{% endif %}
+				</a>
 			{% endif %}
 		{% endfor %}
 

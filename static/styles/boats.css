@@ -17,6 +17,16 @@
 	gap: 1em;
 }
 
+#current_page
+{
+	font-weight: bold;
+}
+
+button:not(#current_page), select
+{
+	color: rgb(75, 75, 75);
+}
+
 #boat_holder
 {
 	width: 100%;
