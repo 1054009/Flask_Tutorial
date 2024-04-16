@@ -130,9 +130,20 @@ def handle_edit(mode = "invalid"):
 			pass
 
 		case "remove":
+			run_query(f"delete from `boats` where `id` = {boat_id}")
+
 			pass
 
-		case "update":
+		case "edit":
+			owner_id = run_query(f"select `owner_id` from `boats` where lower(`name`) = '{owner_name.lower()}'").first()
+
+			if owner_id == None:
+				owner_id = run_query("select max(`owner_id`) from `boats`;").first()[0] + 1
+			else:
+				owner_id = owner_id[0]
+
+			run_query(f"update `boats` set `name` = '{owner_name}', `type` = '{boat_type}', `owner_id` = {owner_id}, `rental_price` = {rental_price} where `id` = {boat_id}")
+
 			pass
 
 		case "invalid":

@@ -10,6 +10,13 @@
 		<input id="owner_name" type="text" name="owner_name" placeholder="Owner Name" required>
 		<input id="boat_type" type="text" name="boat_type" placeholder="Type" required>
 		<input id="rental_price" type="number" min="1" max="10000" name="rental_price" placeholder="Rental Price" required>
+	{% elif mode == "remove" %}
+		<input id="boat_id" type="number" min="1" max="10000" name="boat_id" placeholder="Boat ID" required>
+	{% elif mode == "edit" %}
+		<input id="boat_id" type="number" min="1" max="10000" name="boat_id" placeholder="Boat ID to Update" required>
+		<input id="owner_name" type="text" name="owner_name" placeholder="Owner Name" required>
+		<input id="boat_type" type="text" name="boat_type" placeholder="Type" required>
+		<input id="rental_price" type="number" min="1" max="10000" name="rental_price" placeholder="Rental Price" required>
 	{% endif %}
 
 	<input type="submit" value="Submit">
