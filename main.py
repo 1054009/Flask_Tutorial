@@ -98,8 +98,10 @@ def load_edit(mode = "invalid"):
 def handle_edit(mode = "invalid"):
 	mode = get_edit_mode(mode)
 
+	boat_id = request.form.get("boat_id")
 	owner_name = request.form.get("owner_name")
 	boat_type = request.form.get("boat_type")
+	owner_id = request.form.get("owner_id")
 	rental_price = request.form.get("rental_price")
 
 	match mode:
@@ -107,6 +109,7 @@ def handle_edit(mode = "invalid"):
 			boat_id = run_query("select max(`id`) from `boats`;").first()[0] + 1
 
 			owner_id = run_query(f"select `owner_id` from `boats` where lower(`name`) = '{owner_name.lower()}'").first()
+
 			if owner_id == None:
 				owner_id = run_query("select max(`owner_id`) from `boats`;").first()[0] + 1
 			else:
