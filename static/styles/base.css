@@ -36,6 +36,11 @@ html, body
 	height: 100%;
 }
 
+button
+{
+	min-width: 5em;
+}
+
 .float_right
 {
 	float: right;
