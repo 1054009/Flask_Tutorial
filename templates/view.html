@@ -9,36 +9,30 @@
 	<img src="{{ url_for('static', filename = 'img/boat.webp') }}">
 </div>
 
-<div id="boat_properties" class="window glass active">
-	<div class="title-bar">
-		<div class="title-bar-text">Boat Number {{ boat["id"] }}</div>
+<div id="boat_properties">
+	<div class="boat_property">
+		<p>Boat ID</p>
+		<p class="float_right">{{ boat["id"] }}</p>
 	</div>
 
-	<div class="window-body has-space">
-		<div class="boat_property">
-			<p>Boat ID</p>
-			<p class="float_right">{{ boat["id"] }}</p>
-		</div>
+	<div class="boat_property">
+		<p>Boat Type</p>
+		<p class="float_right">{{ boat["type"] }}</p>
+	</div>
 
-		<div class="boat_property">
-			<p>Boat Type</p>
-			<p class="float_right">{{ boat["type"] }}</p>
-		</div>
+	<div class="boat_property">
+		<p>Owner Name</p>
+		<p class="float_right">{{ boat["name"] }}</p>
+	</div>
 
-		<div class="boat_property">
-			<p>Owner Name</p>
-			<p class="float_right">{{ boat["name"] }}</p>
-		</div>
+	<div class="boat_property">
+		<p>Owner ID</p>
+		<p class="float_right">{{ boat["owner_id"] }}</p>
+	</div>
 
-		<div class="boat_property">
-			<p>Owner ID</p>
-			<p class="float_right">{{ boat["owner_id"] }}</p>
-		</div>
-
-		<div class="boat_property">
-			<p>Boat Rental Price</p>
-			<p class="float_right">{{ "${:,.2f}".format(boat["rental_price"]) }}</p>
-		</div>
+	<div class="boat_property">
+		<p>Boat Rental Price</p>
+		<p class="float_right">{{ "${:,.2f}".format(boat["rental_price"]) }}</p>
 	</div>
 </div>
 {% endblock %}
