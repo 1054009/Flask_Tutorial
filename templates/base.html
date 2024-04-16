@@ -25,19 +25,17 @@
 			</div>
 		</div>
 
-		<div id="body_display">
-			<div id="body_block">
-				{% block body %}
-				{% endblock %}
-			</div>
-
-			<div id="footer" class="boat_scroll">
-				&copy; Boats!
-
-				<div class="float_right">
-					<p>The boats own you and all</p>
-				</div>
-			</div>
+		<div id="body_block">
+			{% block body %}
+			{% endblock %}
 		</div>
+
+		<footer id="footer" class="boat_scroll">
+			&copy; Boats!
+
+			<div class="float_right">
+				<p>The boats own you and all</p>
+			</div>
+		</footer>
 	</body>
 </html>
