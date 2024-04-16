@@ -40,7 +40,7 @@ def get_boats(page = 1, per_page = 10):
 	return boats, page, per_page, min_page, max_page
 
 @app.route("/")
-@app.route("/home")
+@app.route("/home/")
 def index():
 	boat_count = run_query("select count(distinct `id`) from `boats`").first()[0]
 	owner_count = run_query("select count(distinct `owner_id`) from `boats`").first()[0]
