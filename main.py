@@ -68,25 +68,5 @@ def manage_dummy(page = 1):
 def manage_boat(boat_id = 1):
 	return view_boat(boat_id, True)
 
-@app.route("/create", methods = ["GET"])
-def create_get_request():
-	return render_template("boats_create.html")
-
-@app.route("/create", methods = ["POST"])
-def create_boat():
-	status = "Boat??"
-
-	try:
-		query = text("insert into `boats` values (:id, :name, :type, :owner_id, :rental_price)")
-		conn.execute(query, request.form)
-
-		status = "Your boat is now"
-	except Exception as e:
-		print(e.orig.args[1])
-
-		status = "Boat has been DENIED"
-
-	return render_template("boats_create.html", status = status)
-
 if __name__ == "__main__":
 	app.run()
