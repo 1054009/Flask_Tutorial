@@ -18,13 +18,14 @@ def get_int(value, min, default):
 
 	return value
 
-def get_boats(page = 1):
+def get_boats(page = 1, per_page = 10):
 	page = get_int(page, 1, 1)
+	per_page = get_int(per_page, 10, 10)
 
 	boat_count = run_query("select count(distinct `id`) from `boats`").first()[0]
-	boats = run_query(f"select * from `boats` limit 10 offset {(page - 1) * 10}").all()
+	boats = run_query(f"select * from `boats` limit {per_page} offset {(page - 1) * per_page}").all()
 
-	return boats, page, 1, math.ceil(boat_count / 10)
+	return boats, page, 1, math.ceil(boat_count / per_page)
 
 @app.route("/")
 @app.route("/home")
