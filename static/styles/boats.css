@@ -1,5 +1,15 @@
-#page_selector
+#page_controls
 {
+	display: flex;
+	flex-direction: column;
+
+	gap: 1em;
+}
+
+#page_controls > *
+{
+	width: 100%;
+
 	display: flex;
 	justify-content: center;
 	align-items: center;
