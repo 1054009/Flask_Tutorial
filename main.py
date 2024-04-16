@@ -9,12 +9,17 @@ conn = engine.connect()
 def run_query(query, parameters = None):
 	return conn.execute(text(query), parameters)
 
-def get_boats(page = 1):
+def get_int(value, min, default):
 	try:
-		page = int(page)
-		assert(page > 0)
+		value = int(value)
+		assert(value >= min)
 	except:
-		page = 1
+		value = default
+
+	return value
+
+def get_boats(page = 1):
+	page = get_int(page, 1, 1)
 
 	boat_count = run_query("select count(distinct `id`) from `boats`").first()[0]
 	boats = run_query(f"select * from `boats` limit 10 offset {(page - 1) * 10}").all()
