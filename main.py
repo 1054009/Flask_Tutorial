@@ -24,7 +24,7 @@ def index():
 	)
 
 @app.route("/boats/view/<boat_id>")
-def view_boat(boat_id = 1, manage = False):
+def view_boat(boat_id = 1):
 	try:
 		boat_id = int(boat_id)
 		assert(boat_id > 0)
@@ -33,14 +33,11 @@ def view_boat(boat_id = 1, manage = False):
 
 	boat = run_query(f"select * from `boats`where `id` = {boat_id}").first()
 
-	if manage:
-		return render_template("manage.html", boat = boat)
-	else:
-		return render_template("view.html", boat = boat)
+	return render_template("view.html", boat = boat)
 
 @app.route("/boats/")
 @app.route("/boats/<page>")
-def get_boats(page = 1, manage = False):
+def get_boats(page = 1):
 	try:
 		page = int(page)
 		assert(page > 0)
@@ -55,18 +52,8 @@ def get_boats(page = 1, manage = False):
 		boats = boats,
 		page = page,
 		min_page = 1,
-		max_page = math.ceil(boat_count / 10),
-		manage = manage
+		max_page = math.ceil(boat_count / 10)
 	)
-
-@app.route("/manage/")
-@app.route("/manage/<page>")
-def manage_dummy(page = 1):
-	return get_boats(page, True)
-
-@app.route("/manage/boat/<boat_id>")
-def manage_boat(boat_id = 1):
-	return view_boat(boat_id, True)
 
 if __name__ == "__main__":
 	app.run()
