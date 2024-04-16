@@ -27,6 +27,11 @@
 	font-family: sans-serif;
 }
 
+a
+{
+	all: unset;
+}
+
 html, body
 {
 	margin: 0;
@@ -152,6 +157,11 @@ p
 
 	display: flex;
 	align-items: center;
+}
+
+#navbar a
+{
+	text-decoration: underline;
 }
 
 #navbar a:visited
