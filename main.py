@@ -18,14 +18,26 @@ def get_int(value, min, default):
 
 	return value
 
+def clamp(x, min, max):
+	if x < min: return min
+	if x > max: return max
+
+	return x
+
 def get_boats(page = 1, per_page = 10):
 	page = get_int(page, 1, 1)
 	per_page = get_int(per_page, 10, 10)
 
 	boat_count = run_query("select count(distinct `id`) from `boats`").first()[0]
+
+	min_page = 1
+	max_page = math.ceil(boat_count / per_page)
+
+	page = clamp(page, min_page, max_page)
+
 	boats = run_query(f"select * from `boats` limit {per_page} offset {(page - 1) * per_page}").all()
 
-	return boats, page, per_page, 1, math.ceil(boat_count / per_page)
+	return boats, page, per_page, min_page, max_page
 
 @app.route("/")
 @app.route("/home")
