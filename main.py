@@ -43,11 +43,7 @@ def index():
 
 @app.route("/boats/view/<boat_id>")
 def view_boat(boat_id = 1):
-	try:
-		boat_id = int(boat_id)
-		assert(boat_id > 0)
-	except:
-		boat_id = 1
+	boat_id = get_int(boat_id, 1, 1)
 
 	boat = run_query(f"select * from `boats` where `id` = {boat_id}").first()
 
