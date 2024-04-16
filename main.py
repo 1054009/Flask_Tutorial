@@ -25,7 +25,7 @@ def get_boats(page = 1, per_page = 10):
 	boat_count = run_query("select count(distinct `id`) from `boats`").first()[0]
 	boats = run_query(f"select * from `boats` limit {per_page} offset {(page - 1) * per_page}").all()
 
-	return boats, page, 1, math.ceil(boat_count / per_page)
+	return boats, page, per_page, 1, math.ceil(boat_count / per_page)
 
 @app.route("/")
 @app.route("/home")
@@ -52,12 +52,13 @@ def view_boat(boat_id = 1):
 @app.route("/boats/")
 @app.route("/boats/<page>")
 def view_boats(page = 1):
-	boats, page, min_page, max_page = get_boats(page, request.args.get("per_page"))
+	boats, page, per_page, min_page, max_page = get_boats(page, request.args.get("per_page"))
 
 	return render_template(
 		"boats.html",
 		boats = boats,
 		page = page,
+		per_page = per_page,
 		min_page = min_page,
 		max_page = max_page
 	)
