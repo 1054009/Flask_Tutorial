@@ -39,6 +39,14 @@ def get_boats(page = 1, per_page = 10):
 
 	return boats, page, per_page, min_page, max_page
 
+def get_edit_mode(mode):
+	mode = str(mode).strip().lower()
+
+	if mode in ( "add", "remove", "edit" ):
+		return mode
+	else:
+		return "invalid"
+
 @app.route("/")
 @app.route("/home/")
 def index():
@@ -76,6 +84,41 @@ def view_boats():
 		min_page = min_page,
 		max_page = max_page
 	)
+
+@app.route("/manage/", methods = [ "GET" ])
+@app.route("/manage/<page>", methods = [ "GET" ])
+def manage():
+	return render_template("manage.html")
+
+@app.route("/edit/<mode>", methods = [ "GET" ])
+def load_edit(mode = "invalid"):
+	return render_template("edit.html", mode = get_edit_mode(mode))
+
+@app.route("/edit/<mode>", methods = [ "POST" ])
+def handle_edit(mode = "invalid"):
+	mode = get_edit_mode(mode)
+
+	owner_name = request.form.get("owner_name")
+	boat_type = request.form.get("boat_type")
+	rental_price = request.form.get("rental_price")
+
+	match mode:
+		case "add":
+			pass
+
+		case "delete":
+			pass
+
+		case "update":
+			pass
+
+		case "invalid":
+			pass
+
+		case _:
+			pass
+
+	return render_template("edit.html", mode = mode)
 
 if __name__ == "__main__":
 	app.run()
