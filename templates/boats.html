@@ -25,7 +25,11 @@
 
 <div id="boat_holder">
 	{% for boat in boats %}
+	{% if manage %}
+	<a href="{{ "/manage/boat/" + boat["id"] | string }}">
+	{% else %}
 	<a href="{{ "/boats/view/" + boat["id"] | string }}">
+	{% endif %}
 		<div id="boat_display">
 			<h2>Click to view Boat #{{ boat["id"] }}</h2>
 		</div>
