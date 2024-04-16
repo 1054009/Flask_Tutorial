@@ -102,8 +102,6 @@ def handle_edit(mode = "invalid"):
 	boat_type = request.form.get("boat_type")
 	rental_price = request.form.get("rental_price")
 
-	print("ALKFJOISFJFOI\n\n\n\n\nOIJFOEIJGF")
-
 	match mode:
 		case "add":
 			boat_id = run_query("select max(`id`) from `boats`;").first()[0] + 1
@@ -128,7 +126,7 @@ def handle_edit(mode = "invalid"):
 
 			pass
 
-		case "delete":
+		case "remove":
 			pass
 
 		case "update":
