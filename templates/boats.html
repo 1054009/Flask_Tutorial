@@ -38,6 +38,8 @@
 	</div>
 
 	<div>
+		<p>Boats Per Page: </p>
+
 		<select onchange="set_page({{ page }}, event.target.value)">
 			{% for i in range(10, 51) %}
 				{% if i == per_page %}
