@@ -87,6 +87,43 @@ button
 	background-repeat: repeat;
 }
 
+.boat_button
+{
+	padding-left: 1em;
+	padding-right: 1em;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	border-radius: 1em;
+	border: 1px solid black;
+
+	cursor: pointer;
+
+	background: linear-gradient(0deg, var(--transparent-gray), var(--transparent-gray)), var(--boat);
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.boat_button:hover
+{
+	background: linear-gradient(0deg, var(--transparent-dark-gray), var(--transparent-dark-gray)), var(--boat);
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.boat_button *
+{
+	pointer-events: none;
+}
+
+.boat_button img
+{
+	width: auto;
+	height: 2em;
+}
+
 /*
 *
 *	NavBar
