@@ -30,6 +30,8 @@
 a
 {
 	all: unset;
+
+	cursor: pointer;
 }
 
 html, body
