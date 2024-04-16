@@ -43,7 +43,7 @@ def view_boat(boat_id = 1):
 	except:
 		boat_id = 1
 
-	boat = run_query(f"select * from `boats`where `id` = {boat_id}").first()
+	boat = run_query(f"select * from `boats` where `id` = {boat_id}").first()
 
 	return render_template("view.html", boat = boat)
 
