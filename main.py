@@ -3,7 +3,7 @@ from sqlalchemy import create_engine, text
 import math
 
 app = Flask(__name__)
-engine = create_engine("mysql://root:1234@localhost/boatdb", echo=True)
+engine = create_engine("mysql://root:1234@localhost/boatdb")
 conn = engine.connect()
 
 def run_query(query, parameters = None):
@@ -102,8 +102,30 @@ def handle_edit(mode = "invalid"):
 	boat_type = request.form.get("boat_type")
 	rental_price = request.form.get("rental_price")
 
+	print("ALKFJOISFJFOI\n\n\n\n\nOIJFOEIJGF")
+
 	match mode:
 		case "add":
+			boat_id = run_query("select max(`id`) from `boats`;").first()[0] + 1
+
+			owner_id = run_query(f"select `owner_id` from `boats` where lower(`name`) = '{owner_name.lower()}'").first()
+			if owner_id == None:
+				owner_id = run_query("select max(`owner_id`) from `boats`;").first()[0] + 1
+			else:
+				owner_id = owner_id[0]
+
+			run_query(
+				"insert into `boats` values (:boat_id, :owner_name, :boat_type, :owner_id, :rental_price)",
+
+				{
+					"boat_id": boat_id,
+					"owner_name": owner_name,
+					"boat_type": boat_type,
+					"owner_id": owner_id,
+					"rental_price": rental_price
+				}
+			)
+
 			pass
 
 		case "delete":

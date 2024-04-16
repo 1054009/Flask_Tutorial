@@ -5,9 +5,13 @@
 {% endblock %}
 
 {% block body %}
-<div id="manage_container">
+<form id="manage_container" action="/edit/{{ mode | string }}" method="post">
 	{% if mode == "add" %}
-
+		<input id="owner_name" type="text" name="owner_name" placeholder="Owner Name" required>
+		<input id="boat_type" type="text" name="boat_type" placeholder="Type" required>
+		<input id="rental_price" type="number" min="1" max="10000" name="rental_price" placeholder="Rental Price" required>
 	{% endif %}
-</div>
+
+	<input type="submit" value="Submit">
+</form>
 {% endblock %}
