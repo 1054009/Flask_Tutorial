@@ -5,24 +5,42 @@
 {% endblock %}
 
 {% block body %}
+<script type="text/javascript">
+	function set_page(page = 1, per_page = 10)
+	{
+		top.location = `../boats/${page}?per_page=${per_page}`
+	}
+</script>
+
 <div id="page_controls">
 	<div>
 		{% if page > min_page %}
-			<a href="{{ "/boats/" + (page - 1) | string }}"><button>Previous Page</button></a>
+			<a onclick="set_page({{ page - 1 }}, {{ per_page }})"><button>Previous Page</button></a>
 		{% endif %}
 
 		{% for i in range(page - 1, page + 2) %}
 			{% if i >= min_page and i <= max_page %}
-				<a href="{{ "/boats/" + i | string }}"><button>{{ i }}</button></a>
+				<a onclick="set_page({{ i }}, {{ per_page }})"><button>{{ i }}</button></a>
 			{% endif %}
 		{% endfor %}
 
 		{% if page < max_page %}
-			<a href="{{ "/boats/" + (page + 1) | string }}"><button>Next Page</button></a>
+			<a onclick="set_page({{ page + 1 }}, {{ per_page }})"><button>Next Page</button></a>
 		{% endif %}
 	</div>
-</div>
 
+	<div>
+		<select onchange="set_page({{ page }}, event.target.value)">
+			{% for i in range(10, 51) %}
+				{% if i == per_page %}
+					<option value="{{ i | string }}" selected>{{ i }}</option>
+				{% else %}
+					<option value="{{ i | string }}">{{ i }}</option>
+				{% endif %}
+			{% endfor %}
+		</select>
+	</div>
+</div>
 
 <br />
 
